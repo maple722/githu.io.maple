@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>python网页抓取之数据可视化</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#64748b',
+                        accent: '#f97316',
+                        light: '#f8fafc',
+                        dark: '#1e293b'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+    <!-- 顶部导航 -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl md:text-2xl font-bold text-primary">
+                <i class="fa fa-python mr-2 text-yellow-500"></i>数据可视化作业
+            </h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#intro" class="text-gray-600 hover:text-primary transition-colors"><i class="fa fa-info-circle mr-1"></i>简介</a></li>
+                    <li><a href="#content" class="text-gray-600 hover:text-primary transition-colors"><i class="fa fa-bar-chart mr-1"></i>可视化结果</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 标题区域 -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-400 text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-shadow">python网页抓取之数据可视化</h1>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-6 text-lg">
+                <p><i class="fa fa-user mr-2"></i>作者：jyy</p>
+                <p><i class="fa fa-graduation-cap mr-2"></i>指导老师：Oeasy</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 简介部分 -->
+    <section id="intro" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto bg-light rounded-xl p-6 md:p-8 shadow-md">
+                <h2 class="text-2xl font-bold mb-4 text-dark border-b pb-2">
+                    <i class="fa fa-file-text-o mr-2 text-primary"></i>作业简介
+                </h2>
+                <p class="text-gray-700 leading-relaxed">
+                    本作业通过Python网页抓取技术获取相关数据，经过数据清洗与处理后，使用数据可视化工具将结果以图表形式展示。通过可视化分析，能够更直观地发现数据中隐藏的规律和趋势，为决策提供数据支持。
+                </p>
+                <p class="text-gray-700 leading-relaxed mt-4">
+                    整个过程包括：确定数据源、编写爬虫程序、数据清洗与转换、选择合适的可视化方式、生成可视化图表以及结果分析。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容区 -->
+    <section id="content" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 text-dark">
+                <i class="fa fa-pie-chart mr-2 text-accent"></i>数据可视化结果
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-5xl mx-auto">
+                <!-- 第一张图 - 修改为散点图 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-primary">数据分布散点图</h3>
+                        <p class="text-gray-600 mb-4">
+                            该散点图展示了两个变量之间的关系，每个点代表一个数据样本，点的位置由其在X轴和Y轴上的数值决定。通过散点图可以直观地观察数据的分布趋势和异常值。
+                        </p>
+                        <div class="rounded-lg overflow-hidden border border-gray-200">
+                            <img src="https://youke1.picui.cn/s1/2025/07/15/68765440e13b8.png" 
+                                 alt="数据分布散点图" 
+                                 class="w-full h-auto object-cover transition-transform hover:scale-105 duration-500"
+                                 onerror="this.src='https://picsum.photos/800/450?random=1'; this.onerror=null;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第二张图 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-primary">趋势变化折线图</h3>
+                        <p class="text-gray-600 mb-4">
+                            此折线图展示了数据随时间的变化趋势，清晰呈现了数据的波动情况和整体走向，有助于分析时间序列数据的发展规律。
+                        </p>
+                        <div class="rounded-lg overflow-hidden border border-gray-200">
+                            <img src="https://youke1.picui.cn/s1/2025/07/15/68765440d502c.png" 
+                                 alt="趋势变化折线图" 
+                                 class="w-full h-auto object-cover transition-transform hover:scale-105 duration-500"
+                                 onerror="this.src='https://picsum.photos/800/450?random=2'; this.onerror=null;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第三张图 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-primary">类别对比柱状图</h3>
+                        <p class="text-gray-600 mb-4">
+                            该柱状图对不同类别数据进行横向对比，能够直观展示各类别之间的数值差异，便于比较分析不同类别数据的大小关系。
+                        </p>
+                        <div class="rounded-lg overflow-hidden border border-gray-200">
+                            <img src="https://youke1.picui.cn/s1/2025/07/15/6876544087155.png" 
+                                 alt="类别对比柱状图" 
+                                 class="w-full h-auto object-cover transition-transform hover:scale-105 duration-500"
+                                 onerror="this.src='https://picsum.photos/800/450?random=3'; this.onerror=null;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 总结部分 -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="bg-blue-50 rounded-xl p-6 md:p-8 border border-blue-100">
+                <h2 class="text-2xl font-bold mb-4 text-dark">
+                    <i class="fa fa-lightbulb-o mr-2 text-accent"></i>总结分析
+                </h2>
+                <p class="text-gray-700 leading-relaxed">
+                    通过本次Python网页抓取与数据可视化实践，成功将抽象的数据转化为直观的图表，清晰地展示了数据的特征和规律。从可视化结果可以看出，不同类别的数据分布存在显著差异，且随时间呈现出特定的变化趋势。
+                </p>
+                <p class="text-gray-700 leading-relaxed mt-4">
+                    数据可视化不仅提高了数据分析的效率，也使得非专业人士能够快速理解数据内涵，为后续的决策提供了有力支持。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2">
+                <i class="fa fa-code mr-1"></i>使用Python技术完成
+            </p>
+            <p class="text-gray-400">© CUC数据作业</p>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+            class="fixed bottom-6 right-6 bg-primary text-white rounded-full p-3 shadow-lg hover:bg-blue-600 transition-colors">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 图片加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 0.5s ease-in-out';
+                
+                img.onload = function() {
+                    img.style.opacity = '1';
+                };
+                
+                // 如果图片已经缓存
+                if (img.complete) {
+                    img.style.opacity = '1';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
